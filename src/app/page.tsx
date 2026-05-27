@@ -179,51 +179,66 @@ export default function Home() {
             </button>
           </Link>
 
-          {/* TRÒ CHƠI QUIZ (Placeholder) */}
-          <button
-            id="quiz-btn"
-            className="group relative w-full md:w-auto overflow-hidden btn-metal font-label"
-            style={{
-              padding: "20px 48px",
-              background: "var(--parchment)",
-              color: "var(--gold-dark)",
-              border: "2px solid var(--imperial-gold)",
-              borderRadius: "9999px",
-              fontSize: "16px",
-              fontWeight: 700,
-              letterSpacing: "0.15em",
-              textTransform: "uppercase" as const,
-              cursor: "not-allowed",
-              opacity: 0.7,
-            }}
-            disabled
-            title="Sắp ra mắt"
+          {/* TRÒ CHƠI QUIZ */}
+          <a
+            href="https://ng-t-i-ch-n-l-737374727642.asia-southeast1.run.app/?room=01d3aey"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full md:w-auto"
           >
-            <span className="relative z-10 flex items-center justify-center gap-3">
-              <span
+            <button
+              id="quiz-btn"
+              className="group relative w-full md:w-auto overflow-hidden btn-metal font-label"
+              style={{
+                padding: "20px 48px",
+                background: "var(--parchment)",
+                color: "var(--gold-dark)",
+                border: "2px solid var(--imperial-gold)",
+                borderRadius: "9999px",
+                fontSize: "16px",
+                fontWeight: 700,
+                letterSpacing: "0.15em",
+                textTransform: "uppercase" as const,
+                cursor: "pointer",
+              }}
+              title="Tham gia trò chơi Quiz"
+            >
+              <span className="relative z-10 flex items-center justify-center gap-3">
+                <span
+                  style={{
+                    width: "6px",
+                    height: "6px",
+                    borderRadius: "50%",
+                    background: "var(--deep-crimson)",
+                  }}
+                />
+                TRÒ CHƠI QUIZ
+                <span
+                  className="text-label-md"
+                  style={{
+                    background: "var(--deep-crimson)",
+                    color: "white",
+                    padding: "2px 8px",
+                    borderRadius: "4px",
+                    fontSize: "10px",
+                    marginLeft: "4px",
+                    fontWeight: 700,
+                  }}
+                >
+                  CHƠI NGAY
+                </span>
+              </span>
+              {/* Shimmer sweep */}
+              <div
+                className="absolute inset-0 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"
                 style={{
-                  width: "6px",
-                  height: "6px",
-                  borderRadius: "50%",
-                  background: "var(--deep-crimson)",
+                  background:
+                    "linear-gradient(to right, transparent, rgba(212,175,55,0.15), transparent)",
+                  zIndex: 0,
                 }}
               />
-              TRÒ CHƠI QUIZ
-              <span
-                className="text-label-md"
-                style={{
-                  background: "var(--deep-crimson)",
-                  color: "white",
-                  padding: "2px 8px",
-                  borderRadius: "4px",
-                  fontSize: "10px",
-                  marginLeft: "4px",
-                }}
-              >
-                SẮP RA MẮT
-              </span>
-            </span>
-          </button>
+            </button>
+          </a>
         </div>
 
         {/* Decorative bottom ornament */}
