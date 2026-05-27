@@ -137,6 +137,7 @@ function SensationModel({ playTrigger }: { playTrigger: number }) {
     signalGlowsRef.current.forEach((mesh, idx) => {
       if (!mesh) return;
       const rec = receptors[idx];
+      if (!rec) return;
       if (signalPosRatio >= 0) {
         mesh.visible = true;
         const pos = rec.dir.clone().multiplyScalar(rec.length * signalPosRatio);
@@ -301,6 +302,7 @@ function PerceptionModel({ playTrigger }: { playTrigger: number }) {
     piecesRef.current.forEach((meshGroup, idx) => {
       if (!meshGroup) return;
       const data = piecesData[idx];
+      if (!data) return;
       const baseDistance = 2.2;
       const dist = baseDistance * distMultiplier;
       
@@ -479,8 +481,10 @@ function RepresentationModel({ playTrigger }: { playTrigger: number }) {
     // Cập nhật đám mây điểm
     if (pointsRef.current) {
       const mat = pointsRef.current.material as THREE.PointsMaterial;
-      mat.opacity = 0.3 + ptsIntensity * 0.3;
-      mat.size = 0.035 * (1.0 + ptsIntensity * 0.5);
+      if (mat) {
+        mat.opacity = 0.3 + ptsIntensity * 0.3;
+        mat.size = 0.035 * (1.0 + ptsIntensity * 0.5);
+      }
       pointsRef.current.rotation.y = t * 0.05;
     }
   });
@@ -947,8 +951,8 @@ function PracticeModel({ playTrigger }: { playTrigger: number }) {
       return true;
     });
 
-    if (sparksPointsRef.current) {
-      sparksPointsRef.current.geometry.attributes.position.needsUpdate = true;
+    if (sparksPointsRef.current?.geometry?.attributes?.position) {
+      (sparksPointsRef.current.geometry.attributes.position as THREE.BufferAttribute).needsUpdate = true;
     }
   });
 

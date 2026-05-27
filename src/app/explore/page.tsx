@@ -177,9 +177,10 @@ export default function ExplorePage() {
       />
 
       {/* ── UI Layer ── */}
-      <div className="relative z-10 w-full h-full">
+      <div className="relative z-10 w-full h-full pointer-events-none">
         {/* Left Side Panel */}
-        <SidePanel title="Lý luận nhận thức" subtitle="Duy vật biện chứng">
+        <div className="pointer-events-auto">
+          <SidePanel title="Lý luận nhận thức" subtitle="Duy vật biện chứng">
           {/* Section header */}
           <section className="mb-8">
             <h2
@@ -295,10 +296,11 @@ export default function ExplorePage() {
             </div>
           </section>
         </SidePanel>
+      </div>
 
         {/* ── Top-right action buttons ── */}
         <div
-          className="fixed z-50 flex items-center gap-3"
+          className="fixed z-50 flex items-center gap-3 pointer-events-auto"
           style={{ top: "64px", right: "64px" }}
         >
           {/* Back to main menu button */}
@@ -379,19 +381,23 @@ export default function ExplorePage() {
         </div>
 
         {/* Settings Panel */}
-        <SettingsPanel
-          isOpen={showSettings}
-          onClose={() => setShowSettings(false)}
-          settings={settings}
-          onSettingsChange={setSettings}
-        />
+        <div className="pointer-events-auto">
+          <SettingsPanel
+            isOpen={showSettings}
+            onClose={() => setShowSettings(false)}
+            settings={settings}
+            onSettingsChange={setSettings}
+          />
+        </div>
 
         {/* Timeline Bar */}
-        <TimelineBar
-          nodes={timelineNodes}
-          activeNodeId={activeNode}
-          onNodeClick={setActiveNode}
-        />
+        <div className="pointer-events-auto">
+          <TimelineBar
+            nodes={timelineNodes}
+            activeNodeId={activeNode}
+            onNodeClick={setActiveNode}
+          />
+        </div>
       </div>
     </div>
   );

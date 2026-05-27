@@ -16,7 +16,7 @@ export default function SidePanel({
 }: SidePanelProps) {
   return (
     <aside
-      className="fixed left-0 top-0 h-full z-40 flex flex-col parchment-bg art-deco-border animate-slide-in-left opacity-0"
+      className="fixed left-0 top-0 h-full z-40 flex flex-col parchment-bg art-deco-border overflow-y-auto parchment-scroll animate-slide-in-left opacity-0"
       style={{
         width: "400px",
         paddingTop: "var(--gutter)",
@@ -29,7 +29,7 @@ export default function SidePanel({
     >
       {/* ── Header ── */}
       <div
-        className="flex flex-col items-center text-center"
+        className="flex flex-col items-center text-center flex-shrink-0"
         style={{
           padding: "0 32px 24px",
           borderBottom: "2px solid var(--imperial-gold)",
@@ -81,9 +81,8 @@ export default function SidePanel({
         </div>
       </div>
 
-      {/* ── Content Area (Scrollable) ── */}
+      {/* ── Content Area ── */}
       <div
-        className="flex-1 overflow-y-auto parchment-scroll"
         style={{ padding: "24px 32px", color: "var(--on-surface)" }}
       >
         {children}
